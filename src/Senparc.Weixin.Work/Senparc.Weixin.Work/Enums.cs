@@ -172,8 +172,13 @@ namespace Senparc.Weixin.Work
         /// <summary>
         /// 自建应用审批状态变化通知回调
         /// </summary>
-        OPEN_APPROVAL_CHANGE
+        OPEN_APPROVAL_CHANGE,
         #endregion
+
+        /// <summary>
+        /// 模板卡片事件推送
+        /// </summary>
+        TEMPLATE_CARD_EVENT
     }
 
     public enum ThirdPartyInfo

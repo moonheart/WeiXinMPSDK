@@ -349,6 +349,11 @@ namespace Senparc.Weixin.Work.MessageHandlers
                         OnEvent_Open_Approval_Change_Status_ChangeRequestAsync(
                             RequestMessage as RequestMessageEvent_OpenApprovalChange);
                     break;
+                case Event.TEMPLATE_CARD_EVENT: // 模板卡片事件推送
+                    responseMessage = await
+                        OnEvent_TemplateCardAsync(
+                            RequestMessage as RequestMessageEvent_Template_Card);
+                    break;
                 default:
                     throw new UnknownRequestMsgTypeException("未知的Event下属请求信息", null);
             }
@@ -701,6 +706,17 @@ namespace Senparc.Weixin.Work.MessageHandlers
         }
 
         #endregion
+
+        /// <summary>
+        /// 模板卡片事件推送
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
+        public virtual async Task<IWorkResponseMessageBase> OnEvent_TemplateCardAsync(
+            RequestMessageEvent_Template_Card requestMessage)
+        {
+            return await Task.Run(() => OnEvent_TemplateCard(requestMessage)).ConfigureAwait(false);
+        }
 
         #endregion //Event 下属分类
 

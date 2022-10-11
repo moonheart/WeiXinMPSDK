@@ -823,6 +823,12 @@ namespace Senparc.Weixin.Work.MessageHandlers
         }
         #endregion
 
+        public virtual IWorkResponseMessageBase OnEvent_TemplateCard(
+            RequestMessageEvent_Template_Card requestMessage)
+        {
+            return DefaultResponseMessage(requestMessage);
+        }
+        
         #endregion //Event 下属分类
         #endregion
 
